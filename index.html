@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <style>
+      *{
+  margin: 0;
+  padding: 0;
+  font-family: "montserrat";
+}
+body{
+  background: #333;
+}
+
+.btn{
+  position: absolute;
+  top: 40px;
+  right: 40px;
+  color: white;
+  font-size: 36px;
+  cursor: pointer;
+  transition: 0.4s;
+}
+.btn:hover{
+  transform: rotate(90deg);
+}
+
+.box{
+  position: absolute;
+  top: -50%;
+  left: 50%;
+  transform: translate(-50%,-50%);
+  background: #f1f1f1;
+  width: 400px;
+  transition: 1s;
+}
+.box-show{
+  top: 50%;
+}
+.box h2{
+  background: #2c3e50;
+  padding: 20px;
+  font-size: 18px;
+  color: white;
+  text-transform: uppercase;
+}
+.box-c{
+  padding: 20px 40px;
+  overflow: hidden;
+}
+.txtb{
+  position: relative;
+  margin-bottom: 10px;
+}
+#hex{
+  width: 100%;
+  padding: 0 60px;
+  height: 40px;
+  border: 1px solid #2c3e50;
+}
+.prev{
+  width: 50px;
+  height: 30px;
+  position: absolute;
+  top: 5px;
+  left: 5px;
+}
+.apply{
+  float: right;
+  border: none;
+  background: #2c3e50;
+  text-transform: uppercase;
+  padding: 6px 30px;
+  color: white;
+  cursor: pointer;
+}
+
+    </style>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.5.0/css/all.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  </head>
+  <body>
+
+  <div class="btn"><i class="fas fa-cog"></i></div>
+
+  <div class="box">
+    <h2>Enter a color</h2>
+    <div class="box-c">
+      <div class="txtb">
+        <input type="text" placeholder="#000000" id="hex">
+        <div class="prev"></div>
+      </div>
+      <button class="apply">Apply</button>
+    </div>
+  </div>
+
+
+<script type="text/javascript">
+  //to show and hide the box
+  $('.btn').click(function(){
+    $(".box").toggleClass("box-show");
+  });
+
+  //to have a preview of color
+  $('#hex').keyup(function(){
+    $('.prev').css("background",$('#hex').val());
+  });
+
+  //to apply color
+  $('.apply').click(function(){
+    $('body').css("background",$('#hex').val());
+    //to hide the box after aplying the color
+      $(".box").toggleClass("box-show");
+  })
+
+</script>
+
+  </body>
+</html>
